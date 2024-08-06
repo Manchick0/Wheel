@@ -1,0 +1,48 @@
+{
+  "label": [
+    {
+      "text": "\n "
+    },
+    {
+      "translate": "widget.dev.debug"
+    },
+    {
+      "text": " \n\n "
+    },
+    {
+      "translate": "widget.dev.debug_description",
+      "color": "gray"
+    },
+    {
+      "text": " \n "
+    },
+    {
+      "translate": "widget.dev.debug_description_second",
+      "color": "gray"
+    },
+    {
+      "text": " \n"
+    }
+  ],
+  "preview": "minecraft:debug_stick",
+  "actions": [
+    {
+      "type": "command",
+      "command": "debug start"
+    },
+    {
+      "type": "await",
+      "delay": 100,
+      "actions": [
+        {
+          "type": "command",
+          "command": "debug stop"
+        },
+        {
+          "type": "sound",
+          "id": "entity.experience_orb.pickup"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "label": [
+    {
+      "text": "\n "
+    },
+    {
+      "translate": "widget.dev.kill_entities"
+    },
+    {
+      "text": " \n\n "
+    },
+    {
+      "translate": "widget.dev.kill_entities_description",
+      "color": "gray"
+    },
+    {
+      "text": " \n "
+    },
+    {
+      "translate": "widget.dev.kill_entities_description_second",
+      "color": "gray"
+    },
+    {
+      "text": " \n"
+    }
+  ],
+  "preview": {
+    "id": "minecraft:iron_sword",
+    "count": 1
+  },
+  "actions": [
+    {
+      "type": "command",
+      "command": "kill @e[type=!player]"
+    },
+    {
+      "type": "sound",
+      "id": "entity.player.attack.sweep"
+    }
+  ]
+}

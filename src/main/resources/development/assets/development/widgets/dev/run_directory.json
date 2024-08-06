@@ -1,0 +1,38 @@
+{
+  "label": [
+    {
+      "text": "\n "
+    },
+    {
+      "translate": "widget.dev.run_directory"
+    },
+    {
+      "text": " \n\n "
+    },
+    {
+      "translate": "widget.dev.run_directory_description",
+      "color": "gray"
+    },
+    {
+      "text": " \n "
+    },
+    {
+      "translate": "widget.dev.run_directory_description_second",
+      "color": "gray"
+    },
+    {
+      "text": " \n"
+    }
+  ],
+  "preview": {
+    "id": "minecraft:command_block",
+    "count": 1
+  },
+  "actions": [
+    {
+      "type": "link",
+      "destination": ":run",
+      "ignore_confirmation": true
+    }
+  ]
+}

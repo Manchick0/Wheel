@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "wheel",
+  "version": "${version}",
+  "name": "Wheel",
+  "description": "When all you do feels repetitive...",
+  "authors": [],
+  "contact": {
+    "repo": "https://github.com/telep/Wheel"
+  },
+  "license": "MIT",
+  "icon": "assets/wheel/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.manchick.wheel.client.WheelClient"
+    ],
+    "main": [
+      "com.manchick.wheel.Wheel"
+    ]
+  },
+  "mixins": [
+    "wheel.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

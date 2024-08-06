@@ -1,0 +1,38 @@
+{
+  "label": [
+    {
+      "text": "\n "
+    },
+    {
+      "translate": "widget.dev.mcstacker"
+    },
+    {
+      "text": " \n\n "
+    },
+    {
+      "translate": "widget.dev.mcstacker_description",
+      "color": "gray"
+    },
+    {
+      "text": " \n "
+    },
+    {
+      "translate": "widget.dev.mcstacker_description_second",
+      "color": "gray"
+    },
+    {
+      "text": " \n"
+    }
+  ],
+  "preview": {
+    "id": "minecraft:pumpkin",
+    "count": 1
+  },
+  "actions": [
+    {
+      "type": "link",
+      "destination": "https://mcstacker.net/",
+      "ignore_confirmation": true
+    }
+  ]
+}

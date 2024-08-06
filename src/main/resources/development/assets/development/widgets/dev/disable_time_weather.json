@@ -1,0 +1,50 @@
+{
+  "label": [
+    {
+      "text": "\n "
+    },
+    {
+      "translate": "widget.dev.disable_time_weather"
+    },
+    {
+      "text": " \n\n "
+    },
+    {
+      "translate": "widget.dev.disable_time_weather_description",
+      "color": "gray"
+    },
+    {
+      "text": " \n "
+    },
+    {
+      "translate": "widget.dev.disable_time_weather_description_second",
+      "color": "gray"
+    },
+    {
+      "text": " \n"
+    }
+  ],
+  "preview": "minecraft:sunflower",
+  "actions": [
+    {
+      "type": "command",
+      "command": "gamerule doDaylightCycle false"
+    },
+    {
+      "type": "command",
+      "command": "gamerule doWeatherCycle false"
+    },
+    {
+      "type": "command",
+      "command": "weather clear"
+    },
+    {
+      "type": "command",
+      "command": "time set day"
+    },
+    {
+      "type": "sound",
+      "id": "entity.experience_orb.pickup"
+    }
+  ]
+}

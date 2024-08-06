@@ -1,0 +1,8 @@
+{
+  "key.wheel.open": "Open the Wheel",
+  "widget.wheel.empty": "Empty Widget",
+  "widget.wheel.empty_description": "It's empty in here...",
+  "widget.wheel.back": "Go Back",
+  "widget.wheel.back_description": "Returns to the parent",
+  "widget.wheel.back_description_second": "wheel."
+}

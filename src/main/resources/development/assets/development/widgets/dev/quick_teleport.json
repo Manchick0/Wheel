@@ -1,0 +1,41 @@
+{
+  "label": [
+    {
+      "text": "\n "
+    },
+    {
+      "translate": "widget.dev.quick_teleport"
+    },
+    {
+      "text": " \n\n "
+    },
+    {
+      "translate": "widget.dev.quick_teleport_description",
+      "color": "gray"
+    },
+    {
+      "text": " \n "
+    },
+    {
+      "translate": "widget.dev.quick_teleport_description_second",
+      "color": "gray"
+    },
+    {
+      "text": " \n"
+    }
+  ],
+  "preview": {
+    "id": "minecraft:golden_carrot",
+    "count": 1
+  },
+  "actions": [
+    {
+      "type": "command",
+      "command": "tp @s @p[distance=0.1..]"
+    },
+    {
+      "type": "sound",
+      "id": "entity.enderman.teleport"
+    }
+  ]
+}

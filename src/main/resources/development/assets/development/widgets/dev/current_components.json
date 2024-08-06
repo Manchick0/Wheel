@@ -1,0 +1,38 @@
+{
+  "label": [
+    {
+      "text": "\n "
+    },
+    {
+      "translate": "widget.dev.current_components"
+    },
+    {
+      "text": " \n\n "
+    },
+    {
+      "translate": "widget.dev.current_components_description",
+      "color": "gray"
+    },
+    {
+      "text": " \n "
+    },
+    {
+      "translate": "widget.dev.current_components_description_second",
+      "color": "gray"
+    },
+    {
+      "text": " \n"
+    }
+  ],
+  "preview": "minecraft:iron_pickaxe",
+  "actions": [
+    {
+      "type": "command",
+      "command": "data get @s SelectedItem.components"
+    },
+    {
+      "type": "sound",
+      "id": "entity.experience_orb.pickup"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "label": [
+    {
+      "text": "\n "
+    },
+    {
+      "translate": "widget.dev.root"
+    },
+    {
+      "text": " \n\n "
+    },
+    {
+      "translate": "widget.dev.root_description",
+      "color": "gray"
+    },
+    {
+      "text": " \n "
+    },
+    {
+      "translate": "widget.dev.root_description_second",
+      "color": "gray"
+    },
+    {
+      "text": " \n"
+    }
+  ],
+  "preview": "minecraft:structure_block",
+  "take_slot": "bottom_right",
+  "actions": [
+    {
+      "type": "open",
+      "path": "dev"
+    }
+  ]
+}
