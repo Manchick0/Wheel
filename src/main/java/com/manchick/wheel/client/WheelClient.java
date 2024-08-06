@@ -44,7 +44,8 @@ public class WheelClient implements ClientModInitializer {
         Optional<ModContainer> optionalContainer = FabricLoader.getInstance().getModContainer("wheel");
         assert optionalContainer.isPresent();
         ModContainer container = optionalContainer.get();
-        ResourceManagerHelperImpl.registerBuiltinResourcePack(Wheel.of("development"), "development", container, Text.literal("Development Widgets"), ResourcePackActivationType.NORMAL);
+        ResourceManagerHelperImpl.registerBuiltinResourcePack(Wheel.of("development"), "development", container, Text.translatable("pack.development.title"), ResourcePackActivationType.NORMAL);
+        ResourceManagerHelperImpl.registerBuiltinResourcePack(Wheel.of("building"), "building", container, Text.translatable("pack.building.title"), ResourcePackActivationType.DEFAULT_ENABLED);
     }
 
     public void tickKeys(MinecraftClient client){
