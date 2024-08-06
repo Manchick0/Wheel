@@ -13,7 +13,8 @@
         "clipboard",
         "suggest",
         "link",
-        "await"
+        "await",
+        "random"
       ],
       "description": "The type of the action."
     }
@@ -199,6 +200,37 @@
           "delay": {
             "type": "integer",
             "description": "The amount of tick to delay the actions for."
+          }
+        },
+        "required": ["actions"]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "random"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "actions": {
+            "type": ["object", "array"],
+            "anyOf": [
+              {
+                "$ref": "./action.json",
+                "description": "A single action"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "./action.json"
+                },
+                "description": "An array of action entries."
+              }
+            ],
+            "description": "The action(s) to be randomly executed. If only one is present, it has a 50% chance of being performed."
           }
         },
         "required": ["actions"]

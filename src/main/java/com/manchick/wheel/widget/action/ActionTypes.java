@@ -19,6 +19,7 @@ public class ActionTypes {
     public static final ActionType<SuggestAction> SUGGEST = new ActionType<>(SuggestAction.CODEC, "suggest");
     public static final ActionType<LinkAction> LINK = new ActionType<>(LinkAction.CODEC, "link");
     public static final ActionType<AwaitAction> AWAIT = new ActionType<>(AwaitAction.CODEC, "await");
+    public static final ActionType<RandomAction> RANDOM = new ActionType<>(RandomAction.CODEC, "random");
 
     public static void register(){
         register(ECHO);
@@ -29,6 +30,7 @@ public class ActionTypes {
         register(SUGGEST);
         register(LINK);
         register(AWAIT);
+        register(RANDOM);
     }
 
     static void register(ActionType<?> type){

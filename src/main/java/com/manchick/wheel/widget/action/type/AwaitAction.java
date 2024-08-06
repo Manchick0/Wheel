@@ -61,6 +61,6 @@ public class AwaitAction extends Action {
 
     @Override
     public ActionType<?> getType() {
-        return ActionTypes.AWAIT;
+        return ActionTypes.RANDOM;
     }
 }
