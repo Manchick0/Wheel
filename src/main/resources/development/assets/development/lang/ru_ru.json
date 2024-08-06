@@ -12,6 +12,9 @@
   "widget.dev.kill_entities": "Убить сущностей",
   "widget.dev.kill_entities_description": "Убивает всех сущностей, не",
   "widget.dev.kill_entities_description_second": "являющихся игроками.",
+  "widget.dev.current_components": "Текущие компоненты",
+  "widget.dev.current_components_description": "Получает компоненты",
+  "widget.dev.current_components_description_second": "выбранного предмета.",
   "widget.dev.mcstacker": "MCStacker",
   "widget.dev.mcstacker_description": "Открывает MCStacker",
   "widget.dev.mcstacker_description_second": "в браузере.",
@@ -21,5 +24,6 @@
   "widget.dev.run_directory": "Выполняемая папка",
   "widget.dev.run_directory_description": "Открывает текущию папку",
   "widget.dev.run_directory_description_second": "с Майнкрафтом.",
+  "pack.development.title": "Разработка",
   "pack.development.description": "От разработчика, для разработчиков."
 }

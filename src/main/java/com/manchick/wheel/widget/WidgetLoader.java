@@ -60,9 +60,9 @@ public class WidgetLoader extends JsonDataLoader {
         int i = 0;
         for(WidgetSlot slot : WidgetSlot.values()){
             if(map.containsKey(slot)) continue;
+            if(i >= filtered.size()) break;
             map.put(slot, filtered.get(i));
             i++;
-            if(i >= filtered.size()) break;
         }
         if(map.size() < 8){
             for(WidgetSlot slot : WidgetSlot.values()){

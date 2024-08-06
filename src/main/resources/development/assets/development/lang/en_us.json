@@ -12,6 +12,9 @@
   "widget.dev.kill_entities": "Kill Entities",
   "widget.dev.kill_entities_description": "Kills all non-player",
   "widget.dev.kill_entities_description_second": "entities.",
+  "widget.dev.current_components": "Current Components",
+  "widget.dev.current_components_description": "Retrieves the components of",
+  "widget.dev.current_components_description_second": "your selected item.",
   "widget.dev.mcstacker": "MCStacker",
   "widget.dev.mcstacker_description": "Opens up MCStacker",
   "widget.dev.mcstacker_description_second": "in your browser.",
@@ -21,5 +24,6 @@
   "widget.dev.run_directory": "Run Directory",
   "widget.dev.run_directory_description": "Opens up the current",
   "widget.dev.run_directory_description_second": "run directory.",
+  "pack.development.title": "Development",
   "pack.development.description": "By a developer, for developers!"
 }

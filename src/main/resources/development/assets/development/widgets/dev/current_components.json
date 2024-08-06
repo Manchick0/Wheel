@@ -28,7 +28,7 @@
   "actions": [
     {
       "type": "command",
-      "command": "data get @s SelectedItem.components"
+      "command": "data get entity @s SelectedItem.components"
     },
     {
       "type": "sound",
