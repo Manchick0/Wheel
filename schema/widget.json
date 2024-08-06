@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/Manchick0/Wheel/master/schema/widget.json",
+  "title": "Widget",
+  "description": "A Widget within the Wheel",
+  "type": "object",
+  "properties": {
+    "label": {
+      "type": ["string", "object"],
+      "description": "The label shown to the user when hovered."
+    },
+    "preview": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "The identifier of the item."
+            },
+            "count": {
+              "type": "integer",
+              "description": "The count of the item stack."
+            },
+            "components": {
+             "type": "array",
+             "description": "The component map that is to be applied onto the item."
+            }
+          }
+        }
+      ],
+      "type": ["string", "object"],
+      "description": "An item that is to be shown on the widget."
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "$ref": "./shared/action.json",
+        "description": "An action entry."
+      },
+      "description": "The actions performed by the widget."
+    },
+    "take_slot": {
+      "type": "string",
+      "enum": [
+        "top_left",
+        "top",
+        "top_right",
+        "left",
+        "right",
+        "bottom_left",
+        "bottom",
+        "bottom_right"
+      ],
+      "description": "A pre-defined slot on the wheel that will be taken by this widget."
+    }
+  },
+  "required": ["label", "preview", "actions"]
+}

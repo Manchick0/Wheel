@@ -912,3 +912,5 @@
 /build/tmp/remapJar/MANIFEST.MF
 /build/tmp/remapSourcesJar/MANIFEST.MF
 /build/tmp/sourcesJar/MANIFEST.MF
+/build/
+/.gradle/
