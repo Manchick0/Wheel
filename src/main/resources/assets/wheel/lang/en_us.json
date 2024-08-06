@@ -2,8 +2,8 @@
   "key.wheel.open": "Open the Wheel",
   "widget.wheel.empty": "Empty Widget",
   "widget.wheel.empty_description": "It's empty in here...",
-  "pack.building.title": "Building",
-  "pack.building.description": "Could this make building even more fun?",
+  "pack.utility.title": "Utility",
+  "pack.utility.description": "What could be better than utility?",
   "pack.development.title": "Development",
   "pack.development.description": "By a developer, for developers!"
 }

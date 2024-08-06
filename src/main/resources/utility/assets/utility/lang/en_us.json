@@ -1,0 +1,20 @@
+{
+  "widget.utility.wiki": "Wiki",
+  "widget.utility.wiki_description": "Opens up Minecraft Wiki",
+  "widget.utility.wiki_description_second": "in your browser.",
+  "widget.utility.disc": "Disco!",
+  "widget.utility.disc_description": "Plays a random",
+  "widget.utility.disc_description_second": "music disc.",
+  "widget.utility.lobby": "Lobby",
+  "widget.utility.lobby_description": "Returns you to",
+  "widget.utility.lobby_description_second": "the lobby.",
+  "widget.utility.undo": "Undo",
+  "widget.utility.undo_description": "Undoes the last",
+  "widget.utility.undo_description_second": "WorldEdit operation.",
+  "widget.utility.steal": "Steal",
+  "widget.utility.steal_description": "Replaces your current item with",
+  "widget.utility.steal_description_second": "that of the nearest player.",
+  "widget.utility.stop": "Stop",
+  "widget.utility.stop_description": "Stops all the sounds",
+  "widget.utility.stop_description_second": "you're hearing."
+}

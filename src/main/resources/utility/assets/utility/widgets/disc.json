@@ -1,0 +1,115 @@
+{
+  "label": [
+    {
+      "text": "\n "
+    },
+    {
+      "translate": "widget.utility.disc"
+    },
+    {
+      "text": " \n\n "
+    },
+    {
+      "translate": "widget.utility.disc_description",
+      "color": "gray"
+    },
+    {
+      "text": " \n "
+    },
+    {
+      "translate": "widget.utility.disc_description_second",
+      "color": "gray"
+    },
+    {
+      "text": " \n"
+    }
+  ],
+  "preview": "minecraft:music_disc_13",
+  "actions": [
+    {
+      "type": "sound",
+      "stop": true
+    },
+    {
+      "type": "random",
+      "actions": [
+        {
+          "type": "sound",
+          "id": "music_disc.11"
+        },
+        {
+          "type": "sound",
+          "id": "music_disc.13"
+        },
+        {
+          "type": "sound",
+          "id": "music_disc.5"
+        },
+        {
+          "type": "sound",
+          "id": "music_disc.blocks"
+        },
+        {
+          "type": "sound",
+          "id": "music_disc.cat"
+        },
+        {
+          "type": "sound",
+          "id": "music_disc.chirp"
+        },
+        {
+          "type": "sound",
+          "id": "music_disc.creator"
+        },
+        {
+          "type": "sound",
+          "id": "music_disc.creator_music_box"
+        },
+        {
+          "type": "sound",
+          "id": "music_disc.far"
+        },
+        {
+          "type": "sound",
+          "id": "music_disc.mall"
+        },
+        {
+          "type": "sound",
+          "id": "music_disc.mellohi"
+        },
+        {
+          "type": "sound",
+          "id": "music_disc.otherside"
+        },
+        {
+          "type": "sound",
+          "id": "music_disc.pigstep"
+        },
+        {
+          "type": "sound",
+          "id": "music_disc.precipice"
+        },
+        {
+          "type": "sound",
+          "id": "music_disc.relic"
+        },
+        {
+          "type": "sound",
+          "id": "music_disc.stal"
+        },
+        {
+          "type": "sound",
+          "id": "music_disc.strad"
+        },
+        {
+          "type": "sound",
+          "id": "music_disc.wait"
+        },
+        {
+          "type": "sound",
+          "id": "music_disc.ward"
+        }
+      ]
+    }
+  ]
+}

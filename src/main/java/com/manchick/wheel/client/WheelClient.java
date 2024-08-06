@@ -15,9 +15,7 @@ import net.fabricmc.loader.api.ModContainer;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.option.KeyBinding;
-import net.minecraft.client.session.telemetry.WorldUnloadedEvent;
 import net.minecraft.text.Text;
-import net.minecraft.world.WorldEvents;
 import org.lwjgl.glfw.GLFW;
 
 import java.util.Optional;
@@ -45,7 +43,7 @@ public class WheelClient implements ClientModInitializer {
         assert optionalContainer.isPresent();
         ModContainer container = optionalContainer.get();
         ResourceManagerHelperImpl.registerBuiltinResourcePack(Wheel.of("development"), "development", container, Text.translatable("pack.development.title"), ResourcePackActivationType.NORMAL);
-        ResourceManagerHelperImpl.registerBuiltinResourcePack(Wheel.of("building"), "building", container, Text.translatable("pack.building.title"), ResourcePackActivationType.DEFAULT_ENABLED);
+        ResourceManagerHelperImpl.registerBuiltinResourcePack(Wheel.of("utility"), "utility", container, Text.translatable("pack.utility.title"), ResourcePackActivationType.DEFAULT_ENABLED);
     }
 
     public void tickKeys(MinecraftClient client){

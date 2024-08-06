@@ -2,8 +2,8 @@
   "key.wheel.open": "Открыть колесо",
   "widget.wheel.empty": "Пустой виджет",
   "widget.wheel.empty_description": "Тут пустовато...",
-  "pack.building.title": "Строительство",
-  "pack.building.description": "Сделает ли это строительство еще веселее?",
   "pack.development.title": "Разработка",
-  "pack.development.description": "От разработчика, для разработчиков."
+  "pack.development.description": "От разработчика, для разработчиков.",
+  "pack.utility.title": "Утилита",
+  "pack.utility.description": "Что может быть лучше чем утилита?"
 }

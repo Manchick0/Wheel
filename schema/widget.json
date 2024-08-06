@@ -26,7 +26,7 @@
               "description": "The count of the item stack."
             },
             "components": {
-             "type": "array",
+             "type": "object",
              "description": "The component map that is to be applied onto the item."
             }
           }

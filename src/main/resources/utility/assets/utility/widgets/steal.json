@@ -1,0 +1,38 @@
+{
+  "label": [
+    {
+      "text": "\n "
+    },
+    {
+      "translate": "widget.utility.steal"
+    },
+    {
+      "text": " \n\n "
+    },
+    {
+      "translate": "widget.utility.steal_description",
+      "color": "gray"
+    },
+    {
+      "text": " \n "
+    },
+    {
+      "translate": "widget.utility.steal_description_second",
+      "color": "gray"
+    },
+    {
+      "text": " \n"
+    }
+  ],
+  "preview": "minecraft:golden_pickaxe",
+  "actions": [
+    {
+      "type": "sound",
+      "id": "item.bundle.insert"
+    },
+    {
+      "type": "command",
+      "command": "item replace entity @s weapon from entity @p[distance=0.1..] weapon"
+    }
+  ]
+}

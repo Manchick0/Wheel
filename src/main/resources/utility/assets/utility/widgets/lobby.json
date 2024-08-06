@@ -1,0 +1,38 @@
+{
+  "label": [
+    {
+      "text": "\n "
+    },
+    {
+      "translate": "widget.utility.lobby"
+    },
+    {
+      "text": " \n\n "
+    },
+    {
+      "translate": "widget.utility.lobby_description",
+      "color": "gray"
+    },
+    {
+      "text": " \n "
+    },
+    {
+      "translate": "widget.utility.lobby_description_second",
+      "color": "gray"
+    },
+    {
+      "text": " \n"
+    }
+  ],
+  "preview": "minecraft:gold_block",
+  "actions": [
+    {
+      "type": "sound",
+      "id": "entity.experience_orb.pickup"
+    },
+    {
+      "type": "command",
+      "command": "lobby"
+    }
+  ]
+}

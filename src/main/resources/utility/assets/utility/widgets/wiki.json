@@ -1,0 +1,54 @@
+{
+  "label": [
+    {
+      "text": "\n "
+    },
+    {
+      "translate": "widget.utility.wiki"
+    },
+    {
+      "text": " \n\n "
+    },
+    {
+      "translate": "widget.utility.wiki_description",
+      "color": "gray"
+    },
+    {
+      "text": " \n "
+    },
+    {
+      "translate": "widget.utility.wiki_description_second",
+      "color": "gray"
+    },
+    {
+      "text": " \n"
+    }
+  ],
+  "preview": {
+    "id": "minecraft:player_head",
+    "count": 1,
+    "components": {
+      "minecraft:profile": {
+        "id": [
+          238506526,
+          236472374,
+          -1741247043,
+          -879451083
+        ],
+        "properties": [
+          {
+            "name": "textures",
+            "value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjU0ODUwMzFiMzdmMGQ4YTRmM2I3ODE2ZWI3MTdmMDNkZTg5YTg3ZjZhNDA2MDJhZWY1MjIyMWNkZmFmNzQ4OCJ9fX0="
+          }
+        ]
+      }
+    }
+  },
+  "actions": [
+    {
+      "type": "link",
+      "destination": "https://minecraft.wiki/",
+      "ignore_confirmation": true
+    }
+  ]
+}

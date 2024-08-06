@@ -4,20 +4,20 @@
       "text": "\n "
     },
     {
-      "translate": "widget.building.undo"
+      "translate": "widget.utility.undo"
     },
     {
       "text": " \n\n "
     },
     {
-      "translate": "widget.building.undo_description",
+      "translate": "widget.utility.undo_description",
       "color": "gray"
     },
     {
       "text": " \n "
     },
     {
-      "translate": "widget.building.undo_description_second",
+      "translate": "widget.utility.undo_description_second",
       "color": "gray"
     },
     {
@@ -25,8 +25,11 @@
     }
   ],
   "preview": "minecraft:brush",
-  "take_slot": "bottom",
   "actions": [
+    {
+      "type": "sound",
+      "id": "entity.experience_orb.pickup"
+    },
     {
       "type": "command",
       "command": "undo"

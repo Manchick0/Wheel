@@ -1,0 +1,20 @@
+{
+  "widget.utility.wiki": "Вики",
+  "widget.utility.wiki_description": "Открывает Minecraft Вики",
+  "widget.utility.wiki_description_second": "в браузере.",
+  "widget.utility.disc": "Диско!",
+  "widget.utility.disc_description": "Играет случайную",
+  "widget.utility.disc_description_second": "пластинку.",
+  "widget.utility.lobby": "Лобби",
+  "widget.utility.lobby_description": "Возвращает вас в",
+  "widget.utility.lobby_description_second": "лобби.",
+  "widget.utility.undo": "Полный назад!",
+  "widget.utility.undo_description": "Предотвращает предыдущую",
+  "widget.utility.undo_description_second": "WorldEdit операцию.",
+  "widget.utility.steal": "Жулик, не воруй!",
+  "widget.utility.steal_description": "Меняет ваш текущий предмет на",
+  "widget.utility.steal_description_second": "предмет ближайшего игрока.",
+  "widget.utility.stop": "Охрана, отмена!",
+  "widget.utility.stop_description": "Останавливает все звуки,",
+  "widget.utility.stop_description_second": "которые вы слышите."
+}

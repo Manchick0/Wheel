@@ -1,0 +1,34 @@
+{
+  "label": [
+    {
+      "text": "\n "
+    },
+    {
+      "translate": "widget.utility.stop"
+    },
+    {
+      "text": " \n\n "
+    },
+    {
+      "translate": "widget.utility.stop_description",
+      "color": "gray"
+    },
+    {
+      "text": " \n "
+    },
+    {
+      "translate": "widget.utility.stop_description_second",
+      "color": "gray"
+    },
+    {
+      "text": " \n"
+    }
+  ],
+  "preview": "minecraft:music_disc_11",
+  "actions": [
+    {
+      "type": "sound",
+      "stop": true
+    }
+  ]
+}

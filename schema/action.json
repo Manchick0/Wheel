@@ -122,7 +122,7 @@
       },
       "then": {
         "properties": {
-          "actions": {
+          "clipboard": {
             "type": "string",
             "description": "The content to copy."
           }
@@ -140,7 +140,7 @@
       },
       "then": {
         "properties": {
-          "actions": {
+          "content": {
             "type": "string",
             "description": "The content to suggest in the chat."
           },
@@ -165,6 +165,10 @@
           "destination": {
             "type": "string",
             "description": "The destination of the link. Note: Use \":run\" for the run directory."
+          },
+          "ignore_confirmation": {
+            "type": "boolean",
+            "description": "Whether to ignore the confirmation screen."
           }
         },
         "required": ["destination"]

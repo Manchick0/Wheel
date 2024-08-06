@@ -1,7 +1,7 @@
 {
   "pack": {
     "description": {
-      "translate": "pack.building.description"
+      "translate": "pack.util.description"
     },
     "pack_format": 34
   }
