@@ -38,7 +38,7 @@
     "actions": {
       "type": "array",
       "items": {
-        "$ref": "./shared/action.json",
+        "$ref": "action.json",
         "description": "An action entry."
       },
       "description": "The actions performed by the widget."

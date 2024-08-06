@@ -25,29 +25,29 @@ public class SoundAction extends Action {
 
     public static final MapCodec<SoundAction> CODEC = RecordCodecBuilder.mapCodec(instance -> {
         return instance.group(Codec.optionalField("id", Identifier.CODEC, false).forGetter(SoundAction::getId),
-                        Codecs.NONNEGATIVE_INT.fieldOf("volume").orElse(1).forGetter(SoundAction::getVolume),
-                        Codecs.rangedInt(0, 2).fieldOf("pitch").orElse(1).forGetter(SoundAction::getPitch),
+                        Codec.floatRange(0, Float.MAX_VALUE).fieldOf("volume").orElse(1f).forGetter(SoundAction::getVolume),
+                        Codec.floatRange(0, 2).fieldOf("pitch").orElse(1f).forGetter(SoundAction::getPitch),
                         Codec.BOOL.fieldOf("stop").orElse(false).forGetter(SoundAction::shouldStop))
                 .apply(instance, SoundAction::new);
     });
 
     final Optional<Identifier> id;
-    final int volume;
-    final int pitch;
+    final float volume;
+    final float pitch;
     final boolean stop;
 
-    public SoundAction(Optional<Identifier> id, int volume, int pitch, boolean stop){
+    public SoundAction(Optional<Identifier> id, float volume, float pitch, boolean stop){
         this.id = id;
         this.volume = volume;
         this.pitch = pitch;
         this.stop = stop;
     }
 
-    public int getPitch(){
+    public float getPitch(){
         return pitch;
     }
 
-    public int getVolume(){
+    public float getVolume(){
         return volume;
     }
 
