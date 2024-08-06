@@ -914,3 +914,5 @@
 /build/tmp/sourcesJar/MANIFEST.MF
 /build/
 /.gradle/
+/.gradle/8.6/
+/.gradle/loom-cache/
