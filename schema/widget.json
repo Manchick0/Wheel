@@ -6,7 +6,7 @@
   "type": "object",
   "properties": {
     "label": {
-      "type": ["string", "object"],
+      "type": ["string", "object", "array"],
       "description": "The label shown to the user when hovered."
     },
     "preview": {
