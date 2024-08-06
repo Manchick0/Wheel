@@ -25,7 +25,6 @@
     }
   ],
   "preview": "minecraft:structure_block",
-  "take_slot": "bottom_right",
   "actions": [
     {
       "type": "open",
