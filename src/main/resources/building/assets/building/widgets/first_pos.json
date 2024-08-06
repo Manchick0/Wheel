@@ -4,32 +4,32 @@
       "text": "\n "
     },
     {
-      "translate": "widget.building.undo"
+      "translate": "widget.building.first_pos"
     },
     {
       "text": " \n\n "
     },
     {
-      "translate": "widget.building.undo_description",
+      "translate": "widget.building.first_pos_description",
       "color": "gray"
     },
     {
       "text": " \n "
     },
     {
-      "translate": "widget.building.undo_description_second",
+      "translate": "widget.building.first_pos_description_second",
       "color": "gray"
     },
     {
       "text": " \n"
     }
   ],
-  "preview": "minecraft:brush",
-  "take_slot": "bottom",
+  "preview": "minecraft:wooden_axe",
+  "take_slot": "bottom_left",
   "actions": [
     {
       "type": "command",
-      "command": "undo"
+      "command": "//pos1"
     }
   ]
 }

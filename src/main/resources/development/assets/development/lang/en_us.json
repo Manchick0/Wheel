@@ -23,7 +23,5 @@
   "widget.dev.quick_teleport_description_second": "player, excluding yourself.",
   "widget.dev.run_directory": "Run Directory",
   "widget.dev.run_directory_description": "Opens up the current",
-  "widget.dev.run_directory_description_second": "run directory.",
-  "pack.development.title": "Development",
-  "pack.development.description": "By a developer, for developers!"
+  "widget.dev.run_directory_description_second": "run directory."
 }

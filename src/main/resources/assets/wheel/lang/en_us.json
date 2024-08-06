@@ -4,5 +4,9 @@
   "widget.wheel.empty_description": "It's empty in here...",
   "widget.wheel.back": "Go Back",
   "widget.wheel.back_description": "Returns to the parent",
-  "widget.wheel.back_description_second": "wheel."
+  "widget.wheel.back_description_second": "wheel.",
+  "pack.building.title": "Building",
+  "pack.building.description": "Could this make building even more fun?",
+  "pack.development.title": "Development",
+  "pack.development.description": "By a developer, for developers!"
 }

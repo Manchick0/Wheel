@@ -23,7 +23,5 @@
   "widget.dev.quick_teleport_description_second": "ближайшему игроку.",
   "widget.dev.run_directory": "Выполняемая папка",
   "widget.dev.run_directory_description": "Открывает текущию папку",
-  "widget.dev.run_directory_description_second": "с Майнкрафтом.",
-  "pack.development.title": "Разработка",
-  "pack.development.description": "От разработчика, для разработчиков."
+  "widget.dev.run_directory_description_second": "с Майнкрафтом."
 }
