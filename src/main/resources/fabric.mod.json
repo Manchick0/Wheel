@@ -4,7 +4,9 @@
   "version": "${version}",
   "name": "Wheel",
   "description": "When all you do feels repetitive...",
-  "authors": [],
+  "authors": [
+    "Manchick"
+  ],
   "contact": {
     "repo": "https://github.com/telep/Wheel"
   },
