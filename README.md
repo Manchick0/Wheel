@@ -12,8 +12,8 @@ pack, where all your widgets will be located at. Inside your namespace,
 create a folder named `widgets`.
 
 ```
-Root
-├── Assets
+root
+├── assets
 │   └── namespace
 │       └── widgets
 ├── pack.mcmeta
