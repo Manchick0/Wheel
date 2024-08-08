@@ -117,7 +117,7 @@ but ALL of them are listed below :)
 Echo sends the specified message to the chat, or displays it in the actionbar.
 
 ### Fields:
-* `message`: Specifies the message. **JSON-Text** [*]
+* `message`: The message. **JSON-Text** [*]
 * `overlay`: Whether to show in the actionbar instead. **Boolean**
 
 ## `command`
@@ -125,22 +125,61 @@ Echo sends the specified message to the chat, or displays it in the actionbar.
 Runs the specified command.
 
 ### Fields:
-* `command`: Specifies the command. If the first character is '/', it will be ignored. **String** [*]
+* `command`: The command. If the first character is '/', it will be ignored. **String** [*]
 
 ## `open`
 
 Lists all the widgets in the specified path and opens a new wheel with those widgets. The path is a sub path within the `widgets` folder in a resource pack.
 
 ### Fields:
-* `path`: Specifies the path. Must match the following regex: [a-zA-Z0-9_/]*. **String** [*]
+* `path`: The path. Must match the following regex: "[a-zA-Z0-9_/]*". **String** [*]
 
 ## `sound`
 
 Plays the specified sound to the player, or stops it instead.
 
 ### Fields:
-* `id`: Specifies the sound. **String**
-* `volume`: Specifies the volume. **Float**
-* `pitch`: Specifies the pitch. **Float**
+* `id`: The identifier of the sound. **String**
+* `volume`: The volume value. **Float**
+* `pitch`: The pitch value. **Float**
 * `stop`: Whether to stop the sound instead. If the `id` isn't specified, this will stop all sounds. **Boolean**
 
+## `clipboard`
+
+Copies the content to the clipboard of the player.
+
+### Fields:
+* `content`: The content to copy. **String** [*]
+
+## `suggest`
+
+Opens the chat with the specified text inserted.
+
+### Fields:
+* `content`: The content to suggest. **String** [*]
+* `cusrsor`: If included, sets the cursor to the specified position. **Integer**
+
+## `link`
+
+Opens the specified URI.
+
+### Fields:
+* `destination`: A URI specifying the destination of the link. If set to ":run", opens the run directory instead. **String** [*]
+* `ignore_confirmation`: Whether to skip the confirmation screen whilst opening the link. **Boolean**
+
+## `await`
+
+Performs the specified action(s) after a certain amount of ticks.
+
+### Fields:
+* `actions`: The action(s) to perform. Can either be set to an action, or an array of such. **Object | Array** [*]
+* `delay`: The amount of ticks to wait before executing the actions. **Boolean** [*]
+
+## `random`
+
+Randomly selects one of the specified actions and executes it.
+If only one single action is present, it has a 50% chance of executing it
+instead.
+
+### Fields:
+* `actions`: The action(s) to perform. Can either be set to an action, or an array of such. **Object | Array** [*]
