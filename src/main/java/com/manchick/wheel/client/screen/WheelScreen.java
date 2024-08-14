@@ -1,18 +1,17 @@
 package com.manchick.wheel.client.screen;
 
-import com.manchick.wheel.widget.Widget;
+import com.manchick.wheel.util.WidgetSet;
 import com.manchick.wheel.widget.WidgetLoader;
 import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.gui.Element;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.gui.widget.PressableWidget;
 import net.minecraft.text.Text;
 import net.minecraft.util.Language;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class WheelScreen extends Screen {
 
-    final HashMap<WidgetSlot, Widget> widgets;
+    final WidgetSet widgets;
     final String subPath;
 
     public WheelScreen(){
@@ -22,17 +21,15 @@ public class WheelScreen extends Screen {
     public WheelScreen(String subPath){
         super(Text.empty());
         this.subPath = subPath;
-        this.widgets = WidgetLoader.listEntries(subPath);
+        this.widgets = WidgetSet.create(WidgetLoader.filterEntries(subPath));
     }
 
     @Override
     protected void init() {
-        for (Map.Entry<WidgetSlot, Widget> entry : widgets.entrySet()) {
-            WidgetSlot slot = entry.getKey();
-            Widget widget = entry.getValue();
+        widgets.forEach((slot, widget) -> {
             WheelOptionWidget option = new WheelOptionWidget(slot.getX(width), slot.getY(height), widget, slot.getXOffset(), slot.getYOffset());
             addDrawableChild(option);
-        }
+        });
     }
 
     @Override

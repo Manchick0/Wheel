@@ -3,7 +3,6 @@ package com.manchick.wheel.widget.action.type;
 import com.manchick.wheel.client.screen.WheelScreen;
 import com.manchick.wheel.widget.action.Action;
 import com.manchick.wheel.widget.action.ActionType;
-import com.manchick.wheel.widget.action.ActionTypes;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.MapCodec;
@@ -36,6 +35,6 @@ public class OpenAction extends Action {
 
     @Override
     public ActionType<?> getType() {
-        return ActionTypes.OPEN;
+        return ActionType.OPEN;
     }
 }

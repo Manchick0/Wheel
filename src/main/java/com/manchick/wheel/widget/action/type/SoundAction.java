@@ -2,21 +2,15 @@ package com.manchick.wheel.widget.action.type;
 
 import com.manchick.wheel.widget.action.Action;
 import com.manchick.wheel.widget.action.ActionType;
-import com.manchick.wheel.widget.action.ActionTypes;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.sound.PositionedSoundInstance;
-import net.minecraft.client.sound.SoundInstance;
 import net.minecraft.client.sound.SoundManager;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.Text;
-import net.minecraft.text.TextCodecs;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.dynamic.Codecs;
 
 import java.util.Optional;
 
@@ -82,6 +76,6 @@ public class SoundAction extends Action {
 
     @Override
     public ActionType<?> getType() {
-        return ActionTypes.SOUND;
+        return ActionType.SOUND;
     }
 }

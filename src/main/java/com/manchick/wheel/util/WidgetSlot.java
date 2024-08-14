@@ -1,4 +1,4 @@
-package com.manchick.wheel.client.screen;
+package com.manchick.wheel.util;
 
 
 import com.mojang.serialization.Codec;

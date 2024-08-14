@@ -2,7 +2,6 @@ package com.manchick.wheel.widget.action.type;
 
 import com.manchick.wheel.widget.action.Action;
 import com.manchick.wheel.widget.action.ActionType;
-import com.manchick.wheel.widget.action.ActionTypes;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.client.MinecraftClient;
@@ -33,6 +32,6 @@ public class CommandAction extends Action {
 
     @Override
     public ActionType<?> getType() {
-        return ActionTypes.COMMAND;
+        return ActionType.COMMAND;
     }
 }

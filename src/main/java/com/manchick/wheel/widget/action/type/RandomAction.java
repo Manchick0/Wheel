@@ -2,7 +2,6 @@ package com.manchick.wheel.widget.action.type;
 
 import com.manchick.wheel.widget.action.Action;
 import com.manchick.wheel.widget.action.ActionType;
-import com.manchick.wheel.widget.action.ActionTypes;
 import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
@@ -44,6 +43,6 @@ public class RandomAction extends Action {
 
     @Override
     public ActionType<?> getType() {
-        return ActionTypes.RANDOM;
+        return ActionType.RANDOM;
     }
 }

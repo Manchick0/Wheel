@@ -1,16 +1,21 @@
 package com.manchick.wheel.client.screen;
 
 import com.manchick.wheel.Wheel;
+import com.manchick.wheel.client.WheelKeys;
 import com.manchick.wheel.widget.Widget;
+import com.manchick.wheel.widget.WidgetLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.tooltip.Tooltip;
 import net.minecraft.client.gui.widget.ButtonWidget;
+import net.minecraft.client.input.KeyCodes;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+
+import java.util.Optional;
 
 public class WheelOptionWidget extends ButtonWidget {
 
@@ -27,7 +32,7 @@ public class WheelOptionWidget extends ButtonWidget {
         this.widget = widget;
         this.xOffset = xOffset;
         this.yOffset = yOffset;
-        this.setTooltip(Tooltip.of(widget.getLabel()));
+        this.setTooltip(Tooltip.of(widget.label()));
         this.client = MinecraftClient.getInstance();
     }
 
@@ -56,7 +61,7 @@ public class WheelOptionWidget extends ButtonWidget {
     }
 
     protected void renderButton(DrawContext context) {
-        boolean displayHovered = isHovered() && !widget.listActions().isEmpty();
+        boolean displayHovered = isHovered() && !widget.actions().isEmpty();
         int color = (180 << 24) | (displayHovered ? 0x3c8527 : 0x2c2c2c);
         int x = getX();
         int y = getY();
@@ -75,7 +80,7 @@ public class WheelOptionWidget extends ButtonWidget {
     @Override
     public void onPress() {
         MinecraftClient client = MinecraftClient.getInstance();
-        boolean keepOpen = Screen.hasShiftDown() || widget.listActions().isEmpty();
+        boolean keepOpen = Screen.hasShiftDown() || widget.actions().isEmpty();
         if(!keepOpen) {
             client.setScreen(null);
         }

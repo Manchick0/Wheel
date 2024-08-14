@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.manchick.wheel.Wheel;
-import com.manchick.wheel.client.screen.WidgetSlot;
+import com.manchick.wheel.util.Registry;
 import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.minecraft.resource.JsonDataLoader;
@@ -21,7 +21,7 @@ import java.util.concurrent.Executor;
 
 public class WidgetLoader extends JsonDataLoader {
 
-    static final LinkedHashMap<Identifier, Widget> ENTRIES = new LinkedHashMap<>();
+    static final Registry<Identifier, Widget> ENTRIES = new Registry<>();
     static final Logger LOGGER = LoggerFactory.getLogger(WidgetLoader.class);
     static final Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
 
@@ -38,7 +38,8 @@ public class WidgetLoader extends JsonDataLoader {
             Identifier identifier = entry.getKey();
             Optional<Widget> result = Widget.deserialize(element);
             if(result.isPresent()){
-                ENTRIES.put(identifier, result.get());
+                var widget = result.get();
+                ENTRIES.register(identifier, widget);
                 it++;
             }
         }
@@ -46,32 +47,6 @@ public class WidgetLoader extends JsonDataLoader {
         if(filterEntries("").size() > 8){
             LOGGER.warn("There are more than 8 root widgets loaded, some of them might be missing on the wheel!");
         }
-    }
-
-    public static HashMap<WidgetSlot, Widget> listEntries(String subPath){
-        var map = new HashMap<WidgetSlot, Widget>();
-        var filtered = new ArrayList<>(filterEntries(subPath));
-        filtered.stream().filter(Widget::hasSlotTaken).forEach(widget -> {
-            var slot = widget.takenSlot;
-            assert slot.isPresent();
-            map.put(slot.get(), widget);
-        });
-        filtered.removeIf(map::containsValue);
-        int i = 0;
-        for(WidgetSlot slot : WidgetSlot.values()){
-            if(map.containsKey(slot)) continue;
-            if(i >= filtered.size()) break;
-            map.put(slot, filtered.get(i));
-            i++;
-        }
-        if(map.size() < 8){
-            for(WidgetSlot slot : WidgetSlot.values()){
-                if(map.containsKey(slot)) continue;
-                map.put(slot, Widget.empty());
-                if(map.size() >= 8) break;
-            }
-        }
-        return map;
     }
 
     public static List<Widget> filterEntries(String subPath){

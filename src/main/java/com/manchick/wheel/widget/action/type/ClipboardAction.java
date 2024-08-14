@@ -2,11 +2,9 @@ package com.manchick.wheel.widget.action.type;
 
 import com.manchick.wheel.widget.action.Action;
 import com.manchick.wheel.widget.action.ActionType;
-import com.manchick.wheel.widget.action.ActionTypes;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
 
 public class ClipboardAction extends Action {
 
@@ -29,6 +27,6 @@ public class ClipboardAction extends Action {
 
     @Override
     public ActionType<?> getType() {
-        return ActionTypes.CLIPBOARD;
+        return ActionType.CLIPBOARD;
     }
 }

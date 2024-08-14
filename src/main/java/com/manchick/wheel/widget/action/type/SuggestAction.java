@@ -4,7 +4,6 @@ import com.manchick.wheel.mixin.ChatScreenAccessor;
 import com.manchick.wheel.mixin.MinecraftClientInvoker;
 import com.manchick.wheel.widget.action.Action;
 import com.manchick.wheel.widget.action.ActionType;
-import com.manchick.wheel.widget.action.ActionTypes;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -12,8 +11,6 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ChatScreen;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.util.dynamic.Codecs;
-
-import java.util.Optional;
 
 public class SuggestAction extends Action {
 
@@ -50,6 +47,6 @@ public class SuggestAction extends Action {
 
     @Override
     public ActionType<?> getType() {
-        return ActionTypes.SUGGEST;
+        return ActionType.SUGGEST;
     }
 }

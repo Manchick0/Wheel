@@ -1,22 +1,35 @@
 package com.manchick.wheel.widget.action;
 
+import com.manchick.wheel.util.Registry;
+import com.manchick.wheel.widget.action.type.*;
 import com.mojang.serialization.MapCodec;
 
-public class ActionType<W extends Action> {
+@FunctionalInterface
+public interface ActionType<T extends Action> {
 
-    final String identifier;
-    final MapCodec<W> codec;
+    Registry<String, ActionType<?>> REGISTRY = new Registry<>();
 
-    public ActionType(MapCodec<W> codec, String identifier){
-        this.codec = codec;
-        this.identifier = identifier;
-    }
+    ActionType<EchoAction> ECHO = () -> EchoAction.CODEC;
+    ActionType<CommandAction> COMMAND = () -> CommandAction.CODEC;
+    ActionType<OpenAction> OPEN = () -> OpenAction.CODEC;
+    ActionType<SoundAction> SOUND = () -> SoundAction.CODEC;
+    ActionType<ClipboardAction> CLIPBOARD = () -> ClipboardAction.CODEC;
+    ActionType<SuggestAction> SUGGEST = () -> SuggestAction.CODEC;
+    ActionType<LinkAction> LINK = () -> LinkAction.CODEC;
+    ActionType<AwaitAction> AWAIT = () -> AwaitAction.CODEC;
+    ActionType<RandomAction> RANDOM = () -> RandomAction.CODEC;
 
-    public MapCodec<W> getCodec(){
-        return codec;
-    }
+    MapCodec<T> codec();
 
-    public String getIdentifier() {
-        return identifier;
+    static void register(){
+        REGISTRY.register("echo", ECHO);
+        REGISTRY.register("command", COMMAND);
+        REGISTRY.register("open", OPEN);
+        REGISTRY.register("sound", SOUND);
+        REGISTRY.register("clipboard", CLIPBOARD);
+        REGISTRY.register("suggest", SUGGEST);
+        REGISTRY.register("link", LINK);
+        REGISTRY.register("await", AWAIT);
+        REGISTRY.register("random", RANDOM);
     }
 }

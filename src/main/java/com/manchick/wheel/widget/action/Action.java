@@ -5,7 +5,7 @@ import net.minecraft.client.MinecraftClient;
 
 public abstract class Action {
 
-    public static final Codec<Action> CODEC = ActionTypes.getCodec().dispatch(Action::getType, ActionType::getCodec);
+    public static final Codec<Action> CODEC = ActionType.REGISTRY.getCodec(Codec.STRING).dispatch(Action::getType, ActionType::codec);
 
     public abstract void run(MinecraftClient client);
 
