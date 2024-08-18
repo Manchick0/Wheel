@@ -204,8 +204,8 @@ was met, or `else` ones if it wasn't.
 ### Fields:
 
 * `expression` The expression to check. **Expression** [*]
-* `if` The action(s) to execute if the expression evaluated to `true`. **Action | Action List** [*]
-* `else` The action(s) to execute if the expression evaluated to `false`. **Action | Action List**
+* `if` The action(s) to execute if the expression was evaluated to be `true`. **Action | Action List** [*]
+* `else` The action(s) to execute if the expression was evaluated to be `false`. **Action | Action List**
 
 # Working with Values
 
