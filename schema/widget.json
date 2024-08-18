@@ -43,6 +43,10 @@
       },
       "description": "The actions performed by the widget."
     },
+    "keep_opened": {
+      "type": "boolean",
+      "description": "Whether to keep the wheel opened after the Widget is pressed."
+    },
     "take_slot": {
       "type": "string",
       "enum": [

@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
-public record Widget(Text label, Either<RegistryEntry<Item>, ItemStack> preview, List<Action> actions, Optional<WidgetSlot> takenSlot) {
+public record Widget(Text label, Either<RegistryEntry<Item>, ItemStack> preview, List<Action> actions, Optional<WidgetSlot> takenSlot, boolean keepOpened) {
 
     static final Logger LOGGER = LoggerFactory.getLogger(Widget.class);
 
@@ -31,7 +31,8 @@ public record Widget(Text label, Either<RegistryEntry<Item>, ItemStack> preview,
         return instance.group(TextCodecs.CODEC.fieldOf("label").forGetter(Widget::label),
                 Codec.either(ItemStack.ITEM_CODEC, ItemStack.CODEC).fieldOf("preview").forGetter(Widget::preview),
                 Codec.list(Action.CODEC).fieldOf("actions").forGetter(Widget::actions),
-                Codec.optionalField("take_slot", WidgetSlot.CODEC, false).forGetter(Widget::takenSlot))
+                Codec.optionalField("take_slot", WidgetSlot.CODEC, false).forGetter(Widget::takenSlot),
+                Codec.BOOL.fieldOf("keep_opened").orElse(false).forGetter(Widget::keepOpened))
                 .apply(instance, Widget::new);
     });
 
@@ -57,7 +58,7 @@ public record Widget(Text label, Either<RegistryEntry<Item>, ItemStack> preview,
                 .append(space()).append(Text.translatable("widget.wheel.empty")).append(space()).append(newLine())
                 .append(newLine())
                 .append(space()).append(Text.translatable("widget.wheel.empty_description").formatted(Formatting.GRAY)).append(space()).append(newLine());
-        return new Widget(label, Either.right(ItemStack.EMPTY), List.of(), Optional.empty());
+        return new Widget(label, Either.right(ItemStack.EMPTY), List.of(), Optional.empty(), true);
     }
 
     private static MutableText newLine(){

@@ -2,15 +2,12 @@ package com.manchick.wheel.util;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
 public class Registry<T, Z> {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Registry.class);
-    final HashMap<T, Z> entries = new LinkedHashMap<>();
+    final LinkedHashMap<T, Z> entries = new LinkedHashMap<>();
 
     public void register(T identifier, Z entry){
         entries.put(identifier, entry);

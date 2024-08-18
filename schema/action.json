@@ -14,7 +14,9 @@
         "suggest",
         "link",
         "await",
-        "random"
+        "random",
+        "value",
+        "condition"
       ],
       "description": "The type of the action."
     }
@@ -238,6 +240,110 @@
           }
         },
         "required": ["actions"]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "value"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "operation": {
+            "type": "string",
+            "enum": [
+              "assign",
+              "sum",
+              "difference",
+              "product",
+              "quotient",
+              "remainder",
+              "power",
+              "sqrt",
+              "sin",
+              "cos",
+              "max",
+              "min",
+              "random",
+              "round"
+            ],
+            "default": "assign",
+            "description": "An operation to perform on the value specified by the 'id' field."
+          },
+          "id": {
+            "type": ["string"],
+            "description": "The identifier of the value to store the result to."
+          },
+          "value": {
+            "oneOf": [
+              {
+                "type": "number",
+                "description": "A value to use in the operation."
+              },
+              {
+                "type": "string",
+                "description": "A dynamic value to use in the operation."
+              }
+            ]
+          }
+        },
+        "required": ["id", "value"]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "condition"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "expression": {
+            "type": "string",
+            "pattern": "^((\\d+(\\.\\d+)?|\\$[a-z_]+:[a-z_]+)\\s*([>=<])\\s*(\\d+(\\.\\d+)?|\\$[a-z_]:[a-z_]+))$",
+            "description": "The expression used to determine whether the condition was or wasn't met. Supports dynamic values: $path:value"
+          },
+          "if": {
+            "type": ["object", "array"],
+            "anyOf": [
+              {
+                "$ref": "./action.json",
+                "description": "A single action"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "./action.json"
+                },
+                "description": "An array of action entries."
+              }
+            ],
+            "description": "The action(s) to be executed if the condition was met."
+          },
+          "else": {
+            "type": ["object", "array"],
+            "anyOf": [
+              {
+                "$ref": "./action.json",
+                "description": "A single action"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "./action.json"
+                },
+                "description": "An array of action entries."
+              }
+            ],
+            "description": "The action(s) to be executed if the condition wasn't met."
+          }
+        },
+        "required": ["expression", "if"]
       }
     }
   ]

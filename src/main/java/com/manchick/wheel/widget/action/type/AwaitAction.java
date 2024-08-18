@@ -2,48 +2,45 @@ package com.manchick.wheel.widget.action.type;
 
 import com.manchick.wheel.widget.action.Action;
 import com.manchick.wheel.widget.action.ActionType;
-import com.mojang.datafixers.util.Either;
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.util.dynamic.Codecs;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class AwaitAction extends Action {
 
-    static final HashMap<List<Action>, Integer> ENTRIES = new HashMap<>();
+    static final Map<UUID, Entry> ENTRIES = new ConcurrentHashMap<>();
 
     public static final MapCodec<AwaitAction> CODEC = RecordCodecBuilder.mapCodec(instance -> {
-        return instance.group(Codec.either(Action.CODEC, Codec.list(Action.CODEC)).fieldOf("actions").forGetter(AwaitAction::getAction),
+        return instance.group(Action.ACTIONS.fieldOf("actions").forGetter(AwaitAction::getActions),
                         Codecs.POSITIVE_INT.fieldOf("delay").forGetter(AwaitAction::getDelay))
                 .apply(instance, AwaitAction::new);
     });
 
-    final Either<Action, List<Action>> action;
+    final List<Action> actions;
     final int delay;
 
-    public AwaitAction(Either<Action, List<Action>> action, int delay){
-        this.action = action;
+    public AwaitAction(List<Action> actions, int delay){
+        this.actions = actions;
         this.delay = delay;
     }
 
     @Override
     public void run(MinecraftClient client) {
-        action.ifLeft(left -> ENTRIES.put(List.of(left), delay));
-        action.ifRight(right -> ENTRIES.put(right, delay));
+        ENTRIES.put(UUID.randomUUID(), new Entry(actions, delay));
     }
 
     public static void tick(MinecraftClient client){
-        ENTRIES.replaceAll((task, ticksLeft) -> ticksLeft - 1);
-        ENTRIES.entrySet().stream()
-                .filter(entry -> entry.getValue() == 0)
-                .map(Map.Entry::getKey)
-                .forEach(list -> list.forEach(action -> action.run(client)));
-        ENTRIES.entrySet().removeIf(entry -> entry.getValue() == 0);
+        ENTRIES.replaceAll((uuid, entry) -> new Entry(entry.actions, entry.ticksLeft - 1));
+        ENTRIES.values().stream()
+                .filter(entry -> entry.ticksLeft <= 0)
+                .forEach(entry -> entry.actions.forEach(action -> action.run(client)));
+        ENTRIES.values().removeIf(entry -> entry.ticksLeft <= 0);
     }
 
     public static void clearCache(){
@@ -54,12 +51,16 @@ public class AwaitAction extends Action {
         return delay;
     }
 
-    public Either<Action, List<Action>> getAction() {
-        return action;
+    public List<Action> getActions() {
+        return actions;
     }
 
     @Override
     public ActionType<?> getType() {
         return ActionType.AWAIT;
+    }
+
+    private record Entry(List<Action> actions, int ticksLeft) {
+        // Why is 6 afraid of 7? Math.sin(Math.toRadians(21));
     }
 }

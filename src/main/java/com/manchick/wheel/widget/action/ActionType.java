@@ -18,6 +18,8 @@ public interface ActionType<T extends Action> {
     ActionType<LinkAction> LINK = () -> LinkAction.CODEC;
     ActionType<AwaitAction> AWAIT = () -> AwaitAction.CODEC;
     ActionType<RandomAction> RANDOM = () -> RandomAction.CODEC;
+    ActionType<ValueAction> VALUE = () -> ValueAction.CODEC;
+    ActionType<ConditionAction> CONDITION = () -> ConditionAction.CODEC;
 
     MapCodec<T> codec();
 
@@ -31,5 +33,7 @@ public interface ActionType<T extends Action> {
         REGISTRY.register("link", LINK);
         REGISTRY.register("await", AWAIT);
         REGISTRY.register("random", RANDOM);
+        REGISTRY.register("value", VALUE);
+        REGISTRY.register("condition", CONDITION);
     }
 }

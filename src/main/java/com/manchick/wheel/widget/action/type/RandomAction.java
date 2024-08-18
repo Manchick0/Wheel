@@ -12,32 +12,28 @@ import java.util.Random;
 
 public class RandomAction extends Action {
 
-    public static final MapCodec<RandomAction> CODEC = Codec.either(Action.CODEC, Codec.list(Action.CODEC)).fieldOf("actions").xmap(RandomAction::new, RandomAction::getActions);
+    public static final MapCodec<RandomAction> CODEC = Action.ACTIONS.fieldOf("actions").xmap(RandomAction::new, RandomAction::getActions);
 
-    final Either<Action, List<Action>> actions;
+    final List<Action> actions;
 
-    public RandomAction(Either<Action, List<Action>> actions){
+    public RandomAction(List<Action> actions){
         this.actions = actions;
     }
 
     @Override
     public void run(MinecraftClient client) {
         Random random = new Random();
-        var left = actions.left();
-        var right = actions.right();
-        if(right.isPresent()){
-            var list = right.get();
-            int index = random.nextInt(list.size());
-            list.get(index).run(client);
-            return;
-        }
-        assert left.isPresent();
-        if(random.nextBoolean()) {
-            left.get().run(client);
+        if(actions.size() == 1){
+            if(random.nextBoolean()) {
+                actions.getFirst().run(client);
+            }
+        } else {
+            int index = random.nextInt(actions.size());
+            actions.get(index).run(client);
         }
     }
 
-    public Either<Action, List<Action>> getActions() {
+    public List<Action> getActions() {
         return actions;
     }
 

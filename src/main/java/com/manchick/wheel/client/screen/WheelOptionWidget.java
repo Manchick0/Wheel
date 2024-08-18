@@ -80,9 +80,11 @@ public class WheelOptionWidget extends ButtonWidget {
     @Override
     public void onPress() {
         MinecraftClient client = MinecraftClient.getInstance();
-        boolean keepOpen = Screen.hasShiftDown() || widget.actions().isEmpty();
-        if(!keepOpen) {
-            client.setScreen(null);
+        Screen screen = client.currentScreen;
+        boolean keepOpened = widget.keepOpened() || Screen.hasShiftDown();
+        if(!keepOpened) {
+            assert screen != null;
+            screen.close();
         }
         widget.run(client);
     }

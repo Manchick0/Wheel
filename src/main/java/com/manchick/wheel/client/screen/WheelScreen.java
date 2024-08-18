@@ -1,5 +1,6 @@
 package com.manchick.wheel.client.screen;
 
+import com.manchick.wheel.client.WheelClient;
 import com.manchick.wheel.util.WidgetSet;
 import com.manchick.wheel.widget.WidgetLoader;
 import net.minecraft.client.gui.DrawContext;
@@ -57,6 +58,12 @@ public class WheelScreen extends Screen {
 
     public boolean isRoot(){
         return subPath.isEmpty();
+    }
+
+    @Override
+    public void close() {
+        WheelClient.saveConfig();
+        super.close();
     }
 
     public String turnIntoTitleKey(){

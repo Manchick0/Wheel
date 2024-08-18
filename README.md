@@ -139,7 +139,7 @@ Lists all the widgets in the specified path and opens a new wheel with those wid
 Plays the specified sound to the player, or stops it instead.
 
 ### Fields:
-* `id`: The identifier of the sound. **String**
+* `id`: The identifier of the sound. **Identifier**
 * `volume`: The volume value. **Float**
 * `pitch`: The pitch value. **Float**
 * `stop`: Whether to stop the sound instead. If the `id` isn't specified, this will stop all sounds. **Boolean**
@@ -172,14 +172,216 @@ Opens the specified URI.
 Performs the specified action(s) after a certain amount of ticks.
 
 ### Fields:
-* `actions`: The action(s) to perform. Can either be set to an action, or an array of such. **Object | Array** [*]
-* `delay`: The amount of ticks to wait before executing the actions. **Boolean** [*]
+* `actions`: The action(s) to perform. Can either be set to an action, or an array of such. **Action | Action Array** [*]
+* `delay`: The amount of ticks to wait before executing the actions. **Integer** [*]
 
 ## `random`
 
 Randomly selects one of the specified actions and executes it.
-If only one single action is present, it has a 50% chance of executing it
-instead.
+If only one single action is present, it's either executed, or not.
 
 ### Fields:
-* `actions`: The action(s) to perform. Can either be set to an action, or an array of such. **Object | Array** [*]
+* `actions`: The action(s) to perform. Can either be set to an action, or an array of such. **Action | Action Array** [*]
+
+## `value`
+
+> Consider taking a look at [Working with Values](#working-with-values) for a comprehensive tutorial
+> on how to use values together with conditions.
+
+Operates the specified `value` and assigns it to the variable referred by the `id` field.
+The value can either be directly provided or referred by an identifier.
+
+### Fields:
+* `id`: The identifier associated with the variable. **Identifier** [*]
+* `operation`: The operation to perform on the value. Defaults to `assign` if not specified. **Operation**
+* `value`: The value to use for the action. Can either be an identifier or a double value. **Identifier | Double** [*]
+
+## `condition`
+
+Evaluates the provided expression and executes either `if` actions, if the condition
+was met, or `else` ones if it wasn't.
+
+### Fields:
+
+* `expression` The expression to check. **Expression** [*]
+* `if` The action(s) to execute if the expression evaluated to `true`. **Action | Action List** [*]
+* `else` The action(s) to execute if the expression evaluated to `false`. **Action | Action List**
+
+# Working with Values
+
+Values are a crucial part of any advanced widget pack. They have a ton of possible usages,
+including:
+
+- **Radio Buttons**: A good way to add some states to your widgets.
+- **Configs**: Let the user choose a value out of pre-defined list,
+and then make different choices based on that very variable.
+- **Mini Games**: You can even push the possibilities to their boundaries,
+and try to create a full game!
+
+## Assigning a Value
+
+Values are stored as identifiers within the config, meaning they are persistent and are accessible from anywhere in the game.
+Setting a value involves calling the `value` action:
+
+```json
+{
+  "type": "value",
+  "id": "example:value",
+  "value": 5
+}
+```
+
+Just like that, we can assign the value with an identifier of `"example:value"` to 5. Now that we have an assigned
+value, let's create another one:
+
+```json
+{
+  "type": "value",
+  "id": "example:another_value",
+  "value": "example:value"
+}
+```
+
+Right away, you might have noticed that we now use a string instead of a double. This is called **"dynamic values"**.
+It's a way to use already assigned values throughout your actions, in places where they are supported.
+
+A such place is.... `echo` action! To use a dynamic value in an echo action,
+you can simply surround its identifier with such "quotes": `$()`
+
+```json
+{
+  "type": "echo",
+  "message": {
+    "text": "My cool value: $(example:value)"
+  },
+  "overlay": true
+}
+```
+
+This would output `My cool value: 5`, since we've assigned our `example:value` to 5.
+
+### Using Operations
+
+Up until now, we've only assigned a value to a set number. What if we had to use more complex **operations**?
+That's where the optional `operation` comes in handy. It defaults to `assign`, which we've been using all along,
+so it's time to specify an operation we **actually** want.
+
+```json
+{
+  "type": "value",
+  "operation": "sum",
+  "id": "example:another_value",
+  "value": "example:value"
+}
+```
+
+We use the `sum` operation here. It adds two values together, and just like **all** other operations,
+stores the result in the value specified by the `id` field. Of course, you aren't only limited to `assign`
+and `sum` operations. In fact, there are plenty of other ones you can use:
+
+<details>
+<summary>View other Operations</summary>
+
+* `assign` -  assigns the `id` to the `value`
+* `sum` - assigns the `id` to the sum of `id` and `value`
+* `difference` - assigns the `id` to the difference between `id` and `value`
+* `product` - assigns the `id` to the product of `id` and `value`
+* `quotient` - assigns the `id` to the quotient of `id` and `value`
+* `remainder` - assigns the `id` to the remainder of `id` and `value`
+* `power` - raises `id` to the power of `value`, and assigns it to the result.
+* `sqrt` - calculates the square root of `value`, and assigns `id` to the result.
+* `sine` - calculates the sine of `value`, and assigns `id` to the result.
+* `cosine` - calculates the cosine of `value`, and assigns `id` to the result.
+* `max` - assigns `id` to whatever is greater: `id` or `value`.
+* `min` - assigns `id` to whatever is smaller: `id` or `value`.
+* `random` - assigns `id` a random double between 0 and `value`.
+* `round` - rounds `value` to the nearest whole number and assigns `id` to the result.
+</details>
+
+# Checking a Condition
+
+Now that you're familiar with how values are assigned and stored, we can use `condition`s to execute
+different actions based on `expressions`. 
+
+Using a `condition` action is pretty simple. It consists of two main parts, an `expression`, which is a
+properly structured string that is then used to determine whether the condition is true, and two action
+lists - one of them is executed if the condition was met, the other one if it wasn't.
+
+```json5
+{
+  "type": "condition",
+  "expression": "5 > 2",
+  "if": [
+    /* ... */
+  ],
+  "else": [
+    /* ... */
+  ]
+}
+```
+
+## How to Structure Expressions
+
+In the example above, the `expression` is: "5 > 2", which **evaluates** to true, since 5
+is always greater than 5. You might think it's pretty useless, we all knew that 5 is
+greater than 2. Exactly, it is! What isn't useless, is using the very **dynamic values**
+we've discussed earlier:
+
+```json5
+{
+  "type": "condition",
+  "expression": "$example:value > 2",
+  "if": [
+    /* ... */
+  ],
+  "else": [
+    /* ... */
+  ]
+}
+```
+
+With this small adjustment, our expression is now not very clear. What is `$example:value`, is it 2, or is it 5?
+If you remember, we did indeed assign `example:value` to 5, so the expression is true! But what if it wasn't? What
+if `example:value` was set to 1? The expression would be false. 
+
+Let's take a look at another example, this time a tiny bit more complex:
+
+> 💡 You can use different operators to compare variables. Them being: '>', '<', and '='.
+
+```json5
+{
+  actions: [
+    {
+      "type": "value",
+      "id": "example:value",
+      "value": 0
+    },
+    {
+      "type": "condition",
+      "expression": "$example:value = 0",
+      "if": [
+        {
+          "type": "echo",
+          "message": "First click!"
+        },
+        {
+          "type": "value",
+          "id": "example:value",
+          "value": 1
+        }
+      ],
+      "else": [
+        {
+          "type": "echo",
+          "message": "Some click!"
+        }
+      ]
+    }
+  ]
+}
+```
+
+If the actions provided in this example were packed in a widget, clicking it would first output `First click!`, and then
+`Some click!` on any further click. This is because the `example:value` is changed after the condition is met, in fact, it
+is also changed to a value that doesn't match the provided expression. That means that the condition can only evaluate to `true`
+once.
