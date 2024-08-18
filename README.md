@@ -323,7 +323,7 @@ lists - one of them is executed if the condition was met, the other one if it wa
 ## How to Structure Expressions
 
 In the example above, the `expression` is: "5 > 2", which **evaluates** to true, since 5
-is always greater than 5. You might think it's pretty useless, we all knew that 5 is
+is always greater than 2. You might think it's pretty useless, we all knew that 5 is
 greater than 2. Exactly, it is! What isn't useless, is using the very **dynamic values**
 we've discussed earlier:
 
@@ -352,13 +352,8 @@ Let's take a look at another example, this time a tiny bit more complex:
 {
   actions: [
     {
-      "type": "value",
-      "id": "example:value",
-      "value": 0
-    },
-    {
       "type": "condition",
-      "expression": "$example:value = 0",
+      "expression": "$example:click = 0",
       "if": [
         {
           "type": "echo",
@@ -366,7 +361,7 @@ Let's take a look at another example, this time a tiny bit more complex:
         },
         {
           "type": "value",
-          "id": "example:value",
+          "id": "example:click",
           "value": 1
         }
       ],
@@ -382,6 +377,6 @@ Let's take a look at another example, this time a tiny bit more complex:
 ```
 
 If the actions provided in this example were packed in a widget, clicking it would first output `First click!`, and then
-`Some click!` on any further click. This is because the `example:value` is changed after the condition is met, in fact, it
+`Some click!` on any further click. This is because the value `example:click` is changed after the condition is met, in fact, it
 is also changed to a value that doesn't match the provided expression. That means that the condition can only evaluate to `true`
 once.
