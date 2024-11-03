@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.function.BiConsumer;
 
 public class WidgetSet {
-
-    private final Widget[] widgets = new Widget[8];
+    private static final int SET_SIZE = 8;
+    private final Widget[] widgets = new Widget[SET_SIZE];
 
     public static WidgetSet create(List<Widget> list){
         if(list.isEmpty()) return createEmpty();
@@ -28,7 +28,7 @@ public class WidgetSet {
     }
 
     public void removeIncluded(List<Widget> list){
-        for(int i = 0; i < 8; i++){
+        for(int i = 0; i < SET_SIZE; i++){
             Widget widget = widgets[i];
             if(widget == null) continue;
             list.remove(widget);
@@ -50,7 +50,7 @@ public class WidgetSet {
     }
 
     public void fillEmpty(Widget with){
-        for(int i = 0; i < widgets.length; i++){
+        for(int i = 0; i < SET_SIZE; i++){
             if(widgets[i] != null) continue;
             widgets[i] = with;
         }
@@ -58,7 +58,7 @@ public class WidgetSet {
 
     public void fillEmpty(List<Widget> with){
         outer: for(Widget widget : with){
-            for (int i = 0; i < widgets.length; i++) {
+            for (int i = 0; i < SET_SIZE; i++) {
                 if (widgets[i] != null) continue;
                 widgets[i] = widget;
                 continue outer;
@@ -67,7 +67,7 @@ public class WidgetSet {
     }
 
     public void forEach(BiConsumer<WidgetSlot, Widget> action){
-        for(int i = 0; i < 8; i++){
+        for(int i = 0; i < SET_SIZE; i++){
             WidgetSlot slot = WidgetSlot.values()[i];
             action.accept(slot, widgets[i]);
         }
