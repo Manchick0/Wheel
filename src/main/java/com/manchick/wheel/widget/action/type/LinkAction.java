@@ -43,13 +43,15 @@ public class LinkAction extends Action {
     public void run(MinecraftClient client) {
         URI uri;
         try {
-            if(destination.equals(":run")){
-                uri = client.runDirectory.toURI();
+            if(destination.startsWith(".")){
+                var rootPath = client.runDirectory.toPath();
+                uri = rootPath.resolve(destination).normalize().toUri();
             } else uri = URI.create(destination);
         } catch (IllegalArgumentException e){
             LOGGER.error("Invalid URI: {}", destination, e);
             return;
         }
+
         if(ignoreConfirmation){
             Util.getOperatingSystem().open(uri);
             return;

@@ -4,12 +4,12 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import net.minecraft.util.Identifier;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class ValueStorage {
 
-    private static final HashMap<Identifier, Double> ENTRIES = new HashMap<>();
+    private static final Map<Identifier, Double> ENTRIES = new ConcurrentHashMap<>();
 
     public static double get(Identifier identifier){
         return ENTRIES.getOrDefault(identifier, 0.0);

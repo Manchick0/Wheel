@@ -5,5 +5,6 @@
   "pack.development.title": "Разработка",
   "pack.development.description": "От разработчика, для разработчиков.",
   "pack.utility.title": "Утилита",
-  "pack.utility.description": "Что может быть лучше чем утилита?"
+  "pack.utility.description": "Что может быть лучше, чем утилита?",
+  "commands.widget.not_found": "Неизвестный виджет «%s»"
 }

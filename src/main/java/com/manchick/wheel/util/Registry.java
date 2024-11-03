@@ -21,6 +21,10 @@ public class Registry<T, Z> {
         return Optional.ofNullable(entries.get(identifier));
     }
 
+    public Set<T> keySet(){
+        return entries.keySet();
+    }
+
     public T getIdentifier(Z entry){
         return entries.entrySet().stream()
                 .filter(e -> e.getValue().equals(entry))

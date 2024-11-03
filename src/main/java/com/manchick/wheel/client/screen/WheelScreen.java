@@ -1,12 +1,10 @@
 package com.manchick.wheel.client.screen;
 
-import com.manchick.wheel.client.WheelClient;
+import com.manchick.wheel.Wheel;
 import com.manchick.wheel.util.WidgetSet;
 import com.manchick.wheel.widget.WidgetLoader;
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.gui.Element;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.widget.PressableWidget;
 import net.minecraft.text.Text;
 import net.minecraft.util.Language;
 
@@ -22,11 +20,12 @@ public class WheelScreen extends Screen {
     public WheelScreen(String subPath){
         super(Text.empty());
         this.subPath = subPath;
-        this.widgets = WidgetSet.create(WidgetLoader.filterEntries(subPath));
+        this.widgets = WidgetSet.create(WidgetLoader.getInstance().filterEntries(subPath));
     }
 
     @Override
     protected void init() {
+        assert client != null;
         widgets.forEach((slot, widget) -> {
             WheelOptionWidget option = new WheelOptionWidget(slot.getX(width), slot.getY(height), widget, slot.getXOffset(), slot.getYOffset());
             addDrawableChild(option);
@@ -62,7 +61,7 @@ public class WheelScreen extends Screen {
 
     @Override
     public void close() {
-        WheelClient.saveConfig();
+        Wheel.saveConfig();
         super.close();
     }
 

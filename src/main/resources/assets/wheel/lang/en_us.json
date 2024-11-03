@@ -5,5 +5,6 @@
   "pack.utility.title": "Utility",
   "pack.utility.description": "What could be better than utility?",
   "pack.development.title": "Development",
-  "pack.development.description": "By a developer, for developers!"
+  "pack.development.description": "By a developer, for developers!",
+  "commands.widget.not_found": "Unknown widget «%s»"
 }

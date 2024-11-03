@@ -17,14 +17,23 @@ import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 
+/**
+ * The WidgetLoader class is responsible for loading and managing widgets from JSON data.
+ */
 public class WidgetLoader extends JsonDataLoader {
 
-    static final Registry<Identifier, Widget> ENTRIES = new Registry<>();
     static final Logger LOGGER = LoggerFactory.getLogger(WidgetLoader.class);
     static final Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
 
-    public WidgetLoader() {
+    final Registry<Identifier, Widget> ENTRIES = new Registry<>();
+    private static WidgetLoader instance;
+
+    private WidgetLoader() {
         super(GSON, "widgets");
+    }
+
+    public static WidgetLoader getInstance() {
+        return instance == null ? instance = new WidgetLoader() : instance;
     }
 
     @Override
@@ -47,13 +56,21 @@ public class WidgetLoader extends JsonDataLoader {
         }
     }
 
-    public static List<Widget> filterEntries(String subPath){
+    public Optional<Widget> get(Identifier identifier){
+        return ENTRIES.get(identifier);
+    }
+
+    public Set<Identifier> listEntries(){
+        return ENTRIES.keySet();
+    }
+
+    public List<Widget> filterEntries(String subPath){
         return ENTRIES.entrySet().stream()
                 .filter(entry -> stripSubPath(entry.getKey()).equals(subPath))
                 .map(Map.Entry::getValue).toList();
     }
 
-    static String stripSubPath(Identifier identifier){
+    private String stripSubPath(Identifier identifier){
         String path = identifier.getPath();
         if(path.contains("/")){
             String[] parts = path.split("/");
@@ -72,7 +89,7 @@ public class WidgetLoader extends JsonDataLoader {
 
             @Override
             public CompletableFuture<Void> reload(Synchronizer synchronizer, ResourceManager manager, Profiler prepareProfiler, Profiler applyProfiler, Executor prepareExecutor, Executor applyExecutor) {
-                WidgetLoader loader = new WidgetLoader();
+                WidgetLoader loader = WidgetLoader.getInstance();
                 return loader.reload(synchronizer, manager, prepareProfiler, applyProfiler, prepareExecutor, applyExecutor);
             }
         });
