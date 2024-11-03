@@ -164,7 +164,7 @@ Opens the chat with the specified text inserted.
 Opens the specified URI.
 
 ### Fields:
-* `destination`: A URI specifying the destination of the link. If set to ":run", opens the run directory instead. **String** [*]
+* `destination`: A URI specifying the destination of the link. If starts with ".", tries to open a path relative to the run directory instead. **String** [*]
 * `ignore_confirmation`: Whether to skip the confirmation screen whilst opening the link. **Boolean**
 
 ## `await`
