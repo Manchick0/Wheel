@@ -16,9 +16,7 @@ public class WheelKeys {
     }
 
     public static void tickKeys(MinecraftClient client){
-        if(OPEN_KEY.wasPressed()){
-            if(Screen.hasControlDown()) return;
-            client.setScreen(new WheelScreen());
-        }
+        if(!OPEN_KEY.wasPressed() || Screen.hasControlDown()) return;
+        client.setScreen(new WheelScreen());
     }
 }
